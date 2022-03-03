@@ -1,3 +1,5 @@
+const assert = require('assert');
+
 describe('login', function() {
 
   it('user should be login the application successfully', async function() {
@@ -44,8 +46,8 @@ describe('login', function() {
     const welcomeToastMessage = await $(`//hierarchy/android.widget.Toast`);
     await welcomeToastMessage.waitForExist({timeout: 3000});
     const welcomeToastMessagetext = await welcomeToastMessage.getText();
-
-    expect(welcomeToastMessagetext).toHaveValue(`Welcome !!${userName}`);
+    console.log(welcomeToastMessagetext);
+    assert.equal(`Welcome !${userName}`, welcomeToastMessagetext);
 
   });
 
